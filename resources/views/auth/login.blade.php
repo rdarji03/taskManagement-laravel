@@ -15,6 +15,7 @@
         </div>
         <div class="btn">
             <button class="btn btn-primary" type="submit">Login</button>
+            <button class="btn btn-success" ><a href="/register" target="_blank" rel="noopener noreferrer" class="text-white text-decoration-none">Register</a></button>
         </div>
     
     </form>

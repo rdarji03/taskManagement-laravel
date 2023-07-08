@@ -26,7 +26,7 @@ class authControll extends Controller
         $data["password"] = Hash::make($req->password);
         $user = User::create($data);
         if ($user) {
-            return redirect("login");
+            return redirect("/");
         } else {
             return "fail";
         }
@@ -55,6 +55,6 @@ class authControll extends Controller
     {
         Session::flush();
         Auth::logout();
-        return redirect(route("login"));
+        return redirect("/");
     }
 }

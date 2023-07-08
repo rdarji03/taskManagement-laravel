@@ -14,25 +14,12 @@
     @section("username",auth()->user()->name)
     <section class="admin w-100 d-flex">
         <div class="adminSection" style="width:10%">
-            @include("dashboard.dashnav.sidenav")
+            @include("dashboard.dashnav.adminsidenav")
         </div>
         <div style="width:90%">
-            <div class="task-container container my-2 ">
-                <form action="" method="post" class="d-flex justify-content-center">
-                    @csrf
-                    <input type="text" class="form-control shadow-none w-50 p-2 border border-dark"
-                        placeholder="write task here..." name="taskDetail">
-                    <button type="submit" class="btn btn-success mx-2">Add task</button>
-                </form>
-                @if (session("success"))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>{{session("success")}}</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                @endif
-            </div>
+            
             <div class="taskTable container d-flex flex-column align-items-center w-100 ">
-                <h4 class="">Task Board</h4>
+                <h4 class="">User List</h4>
                 <div class="dataTable border border-2 rounded border-dark w-75 ">
                     <table class="table">
                         <thead class="">
