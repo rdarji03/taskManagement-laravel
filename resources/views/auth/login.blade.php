@@ -4,6 +4,12 @@
 <div class="container w-50 ">
     <form action="" method="post" class="ms-auto border border-1 border-success rounded p-2">
         @csrf
+        @if (session("error"))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{session("error")}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Email address</label>
             <input type="email" name="email" class="form-control" id="exampleFormControlInput1"

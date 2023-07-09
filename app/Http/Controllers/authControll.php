@@ -48,7 +48,7 @@ class authControll extends Controller
                 return redirect()->route("staff.home");
             }
         } else {
-            return "error";
+            return redirect()->route("login")->with("error","Please check Credentials");
         }
     }
     public function logout()
