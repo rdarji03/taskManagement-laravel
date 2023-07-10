@@ -17,7 +17,7 @@ class downloadExcel extends Controller
     {
         $users = alocatedTask::get();
   
-        return view('welcome', compact('users'));
+        return view('excel', compact('users'));
     }
         
     /**
@@ -25,7 +25,7 @@ class downloadExcel extends Controller
     */
     public function export() 
     {
-        return Excel::download(new taskData, 'users.xlsx');
+        return Excel::download(new taskData, 'task.xlsx');
     }
        
     /**

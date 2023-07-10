@@ -5,6 +5,7 @@ use App\Http\Controllers\taskController;
 use App\Http\Controllers\userControll;
 use App\Http\Controllers\viewControll;
 use App\Http\Controllers\downloadExcel;
+use App\Http\Controllers\exportPdf;
 use Illuminate\Support\Facades\Route;
 
 Route::get("/",[viewControll::class,"loginView"])->name("login");
@@ -17,6 +18,7 @@ Route::get('/admin/user/delet/{id}',[userControll::class,"deletUser"]);
 Route::get("staff/home",[viewControll::class,"staffHome"])->name("staff.home");
 Route::get("staff/update/{id}",[taskController::class,"updateForm"]);
 Route::get("/export/excel",[downloadExcel::class,"export"]);
+Route::get("/export/pdf",[exportPdf::class,"createPDF"]);
 
 
 Route::post("staff/update/{id}",[taskController::class,"updateTask"]);

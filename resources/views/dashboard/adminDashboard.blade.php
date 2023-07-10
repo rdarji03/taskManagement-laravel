@@ -24,6 +24,7 @@
                         placeholder="write task here..." name="taskDetail">
                     <button type="submit" class="btn btn-success mx-2">Add task</button>
                     <button type="submit" class="btn btn-success mx-2"><a href="/export/excel" class="text-decoration-none text-white">Export Excel</a></button>
+                    <button type="submit" class="btn btn-danger mx-2"><a href="/export/pdf" class="text-decoration-none text-white">Export Pdf</a></button>
                 </form>
                 @if (session("success"))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
