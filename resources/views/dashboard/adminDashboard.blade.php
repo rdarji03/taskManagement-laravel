@@ -23,6 +23,7 @@
                     <input type="text" class="form-control shadow-none w-50 p-2 border border-dark"
                         placeholder="write task here..." name="taskDetail">
                     <button type="submit" class="btn btn-success mx-2">Add task</button>
+                    <button type="submit" class="btn btn-success mx-2"><a href="/export/excel" class="text-decoration-none text-white">Export Excel</a></button>
                 </form>
                 @if (session("success"))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
