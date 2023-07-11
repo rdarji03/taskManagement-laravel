@@ -19,15 +19,13 @@
         <div style="width:90%">
             <div class="task-container container my-2 ">
 
-                <div class="form-container">
-
-
+                <div class="form-container d-flex justify-content-center">
                     <button type="submit" class="btn btn-success mx-2"><a href="/admin/addTask" target="_blank"
                             rel="noopener noreferrer" class="text-decoration-none text-white">Add task</a></button>
-                    <button type="submit" class="btn btn-success mx-2"><a href="/export/excel"
+                    <button type="submit" class="btn btn-primary mx-2"><a href="/export/excel"
                             class="text-decoration-none text-white">Export Excel</a></button>
                     <button type="submit" class="btn btn-danger mx-2"><a href="/export/pdf"
-                            class="text-decoration-none text-white">Export Pdf</a></button>
+                            class="text-decoration-none text-white" target="_blank">Export Pdf</a></button>
                 </div>
 
             </div>
