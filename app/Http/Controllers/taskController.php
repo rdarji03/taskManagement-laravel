@@ -10,9 +10,11 @@ use Illuminate\Http\Request;
 class taskController extends Controller
 {
     public function addTask(Request $req){
-        $data=$req->taskDetail;       
-        DB::table('alocatedTask')->insert(["taskInfo"=>$data]);
-        return redirect()->route("admin.home")->with("success","task has been added");
+        $taskData=$req->taskDetail;   
+        $assignedDate=$req->assignedDate;    
+        $endDate=$req->endDate;    
+        DB::table('alocatedTask')->insert(["taskInfo"=>$taskData,"assignedDate"=>$assignedDate,"endDate"=>$endDate]);
+        return redirect()->route("taskForm")->with("success","task has been added");
 
     }
     public function deletTask($taskID){

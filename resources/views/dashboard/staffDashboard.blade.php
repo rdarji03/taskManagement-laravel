@@ -35,6 +35,8 @@
                             <tr>
                                 <th scope="col" class="text-center">Task No</th>
                                 <th scope="col" class="text-center">Task Information</th>
+                                <th scope="col" class="text-center">Assigned Date</th>
+                                <th scope="col" class="text-center">End Date</th>
                                 <th scope="col" class="text-center">Status</th>
                                 <th scope="col" class="text-center">Action</th>
                             </tr>
@@ -44,6 +46,8 @@
                             <tr>
                                 <th scope="row" class="text-center">{{$data["taskID"]}}</th>
                                 <td class="text-center">{{$data["taskInfo"]}}</td>
+                                <td class="text-center">{{$data["assignedDate"]}}</td>
+                                    <td class="text-center">{{$data["endDate"]}}</td>
                                 <td class="text-center">@if ($data["taskStatus"]==0)
                                     <span class="badge text-bg-secondary">Not Completed</span>
                                     @elseif($data["taskStatus"]==1)

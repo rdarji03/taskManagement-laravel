@@ -10,7 +10,7 @@ class taskData implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return alocatedTask::select("taskID", "taskInfo", "taskStatus")->get();
+        return alocatedTask::select("taskID", "taskInfo", "assignedDate","endDate","taskStatus")->get();
     }
     /**
      * Write code on Method
@@ -19,6 +19,6 @@ class taskData implements FromCollection, WithHeadings
      */
     public function headings(): array
     {
-        return ["taskID", "taskInfo", "taskStatus"];
+        return ["taskID", "taskInfo", "assignedDate","endDate", "taskStatus"];
     }
 }

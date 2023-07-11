@@ -34,13 +34,15 @@
                         </thead>
                         <tbody>
                             @foreach ($userData as $data)
+                            @if ($data["u_type"]==0)
+
+
                             <tr>
                                 <th scope="row" class="text-center">{{$data["id"]}}</th>
                                 <td class="text-center">{{$data["name"]}}</td>
-                                <td class="text-center">@if($data["u_type"]==1)
-                                    <p>Admin</p>
-                                    @else
+                                <td class="text-center">@if($data["u_type"]==0)
                                     <p>Staff</p>
+
                                     @endif
                                 </td>
                                 <td class="text-center">
@@ -51,6 +53,8 @@
                                     </a>
                                 </td>
                             </tr>
+                            @endif
+
                             @endforeach
                         </tbody>
                     </table>

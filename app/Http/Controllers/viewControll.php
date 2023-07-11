@@ -28,5 +28,8 @@ class viewControll extends Controller
         $taskList=$taskAlocated->all();
         return view("dashboard.staffDashboard",["taskList"=>$taskList]);
     }
+    public function showForm(){
+        return  view("dashboard.addTask");
+    }
 
 }
