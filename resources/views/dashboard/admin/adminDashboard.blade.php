@@ -17,9 +17,19 @@
             @include("dashboard.dashnav.adminsidenav")
         </div>
         <div style="width:90%">
-            <div class="task-container container my-2 ">
+            <div class="task-container container my-2 d-flex align-items-center justify-content-between">
+                <div class="searchForm ">
+                    <form action="" method="post" class="d-flex  align-items-center">
+                        @csrf
+                        <div class="dateinp ">
+                            <input type="date" name="startDate" id="">
+                            <input type="date" name="endDate" id="">
+                        </div>
+                        <button class="btn  btn-success" type="submit" >Search task</button>
+                    </form>
+                </div>
 
-                <div class="form-container d-flex justify-content-center">
+                <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-success mx-2"><a href="/admin/addTask" target="_blank"
                             rel="noopener noreferrer" class="text-decoration-none text-white">Add task</a></button>
                     <button type="submit" class="btn btn-primary mx-2"><a href="/export/excel"
@@ -27,7 +37,6 @@
                     <button type="submit" class="btn btn-danger mx-2"><a href="/export/pdf"
                             class="text-decoration-none text-white" target="_blank">Export Pdf</a></button>
                 </div>
-
             </div>
             <div class="taskTable container d-flex flex-column align-items-center w-100 ">
                 <h4 class="text-danger">hello {{auth()->user()->name}}</h4>
@@ -77,6 +86,7 @@
                 </div>
             </div>
         </div>
+
     </section>
 </body>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"

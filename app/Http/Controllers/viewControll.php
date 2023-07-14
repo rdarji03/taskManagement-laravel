@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\alocatedTask;
-use App\Models\User;
-use Illuminate\Http\Request;
 
 class viewControll extends Controller
 {
@@ -18,18 +16,19 @@ class viewControll extends Controller
     }
     public function adminHome()
     {
-        $taskAlocated=new alocatedTask();
-        $taskList=$taskAlocated->all();
-        return view("dashboard.adminDashboard",["taskList"=>$taskList]);
+        $taskAlocated = new alocatedTask();
+        $taskList = $taskAlocated->all();
+        return view("dashboard.admin.adminDashboard", ["taskList" => $taskList]);
     }
     public function staffHome()
     {
-        $taskAlocated=new alocatedTask();
-        $taskList=$taskAlocated->all();
-        return view("dashboard.staffDashboard",["taskList"=>$taskList]);
+        $taskAlocated = new alocatedTask();
+        $taskList = $taskAlocated->all();
+        return view("dashboard.staff.staffDashboard", ["taskList" => $taskList]);
     }
-    public function showForm(){
-        return  view("dashboard.addTask");
+    public function showForm()
+    {
+        return view("dashboard.admin.addTask");
     }
 
 }
