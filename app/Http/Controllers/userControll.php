@@ -10,7 +10,7 @@ class userControll extends Controller
     public function showUser(){
         $userTable=new User();
         $userdata=$userTable->get(["id","name","u_type","email"]);
-        return view("dashboard.userlist",["userData"=>$userdata]);
+        return view("dashboard.admin.userlist",["userData"=>$userdata]);
     }
     public function deletUser($ID){
         user::where('id', $ID)->delete();

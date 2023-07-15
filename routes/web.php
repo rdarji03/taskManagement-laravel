@@ -21,7 +21,8 @@ Route::get("/export/excel", [downloadExcel::class, "export"]);
 Route::get("/export/pdf", [exportPdf::class, "createPDF"]);
 Route::get("/admin/addTask", [viewControll::class, "showForm"])->name("taskForm");
 
-Route::post("admin/home", [taskController::class, "findTask"]);
+Route::post("/importExcel", [downloadExcel::class, "upload"]);
+Route::post("/findTask", [taskController::class, "findTask"]);
 Route::post("/admin/addTask", [taskController::class, "addTask"]);
 Route::post("staff/update/{id}", [taskController::class, "updateTask"]);
 Route::post("register", [authControll::class, "registerPost"])->name("registerPost");

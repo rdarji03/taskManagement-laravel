@@ -24,7 +24,7 @@ class taskController extends Controller
     }
     public function updateForm()
     {
-        return view("dashboard.updateTask");
+        return view("dashboard.admin.updateTask");
     }
     public function updateTask(Request $req, $id)
     {

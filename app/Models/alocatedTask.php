@@ -10,5 +10,10 @@ class alocatedTask extends Model
     use HasFactory;
     protected $table="alocatedTask";
     public $timestamps = false;
-
+    protected $fillable = [
+        'taskInfo',
+        'taskStatus',
+        'assignedDate',
+        'endDate'
+    ];
 }

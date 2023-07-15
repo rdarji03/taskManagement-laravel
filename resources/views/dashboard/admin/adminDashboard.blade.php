@@ -19,7 +19,7 @@
         <div style="width:90%">
             <div class="task-container container my-2 d-flex align-items-center justify-content-between">
                 <div class="searchForm ">
-                    <form action="" method="post" class="d-flex  align-items-center">
+                    <form action="/findTask" method="post" class="d-flex  align-items-center">
                         @csrf
                         <div class="dateinp ">
                             <input type="date" name="startDate" id="">
@@ -30,6 +30,11 @@
                 </div>
 
                 <div class="d-flex justify-content-center">
+                    <form action="/importExcel" method="post" enctype="multipart/form-data" >
+                        @csrf
+                        <input type="file" name="taskdetail" id="" >
+                        <button type="submit">Import Excel</button>
+                    </form>
                     <button type="submit" class="btn btn-success mx-2"><a href="/admin/addTask" target="_blank"
                             rel="noopener noreferrer" class="text-decoration-none text-white">Add task</a></button>
                     <button type="submit" class="btn btn-primary mx-2"><a href="/export/excel"
@@ -61,8 +66,8 @@
                                 <tr>
                                     <th scope="row" class="text-center">{{$data["taskID"]}}</th>
                                     <td class="text-center">{{$data["taskInfo"]}}</td>
-                                    <td class="text-center">{{$data["assignedDate"]}}</td>
-                                    <td class="text-center">{{$data["endDate"]}}</td>
+                                    <td class="text-center">{{date('Y-m-d', strtotime($data["assignedDate"]))}}</td>
+                                    <td class="text-center">{{date('Y-m-d', strtotime($data["endDate"]))}}</td>
                                     <td class="text-center">@if ($data["taskStatus"]==0)
                                         <span class="badge text-bg-secondary">Not Completed</span>
                                         @elseif($data["taskStatus"]==1)
