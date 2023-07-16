@@ -10,6 +10,7 @@
 
 <body>
     <div class="container mt-5">
+        <h2>Assined Task Report</h2>
         <table border="1">
             <thead>
                 <tr class="table-danger">
@@ -17,7 +18,7 @@
                     <th scope="col">task info</th>
                     <th scope="col" class="text-center">Task Status</th>
                     <th scope="col" class="text-center">Assigned Date</th>
-                    <th scope="col">task status</th>
+                    <th scope="col">End Date</th>
 
                 </tr>
             </thead>
@@ -33,8 +34,9 @@
                         @else
                         <span class="badge text-bg-info">In progress</span>
                         @endif
-                    </td>                    <td class="text-center">{{$data->assignedDate}}</td>
-                    <td class="text-center">{{$data->endDate}}</td>
+                    </td>                    <td class="text-center">{{date('Y-m-d', strtotime($data["assignedDate"]))}}
+                    </td>
+                    <td class="text-center">{{date('Y-m-d', strtotime($data["endDate"]))}}</td>
                 </tr>
                 @endforeach
             </tbody>

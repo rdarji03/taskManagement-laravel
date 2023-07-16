@@ -38,14 +38,11 @@ class taskController extends Controller
     }
     public function findTask(Request $req)
     {
-        $eDate = $req->endDate;
-        $aDate = $req->startDate;
+        $endDate = $req->endDate;
+        $eDate=date('Y-m-d', strtotime($endDate));
+        $assignedDate = $req->startDate;
+        $aDate=date('Y-m-d', strtotime($assignedDate));
         $result = alocatedTask::where('assignedDate', $aDate)->where("endDate", $eDate)->get();
-        return view("dashboard.admin.findTask")->with("data" ,$result);
-        // if (count($result) == 0) {
-        //     return view("dashboard.admin.findTask")->with("error" ,"error");
-        // } else {
-        // }
-
+        return view("dashboard.admin.findTask")->with("result" ,$result);
     }
 }

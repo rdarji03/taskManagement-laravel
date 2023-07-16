@@ -20,6 +20,7 @@ Route::get("staff/update/{id}", [taskController::class, "updateForm"]);
 Route::get("/export/excel", [downloadExcel::class, "export"]);
 Route::get("/export/pdf", [exportPdf::class, "createPDF"]);
 Route::get("/admin/addTask", [viewControll::class, "showForm"])->name("taskForm");
+Route::get("/task/report/{assiggnedDate}/{endDate}", [exportPdf::class, "taskPdf"])->name("findTask");
 
 Route::post("/importExcel", [downloadExcel::class, "upload"]);
 Route::post("/findTask", [taskController::class, "findTask"]);

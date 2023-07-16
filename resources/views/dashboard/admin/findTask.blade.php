@@ -2,7 +2,9 @@
 @section("title","tasks")
 @section("content")
 <div class="taskContainer w-full min-vh-100 d-flex justify-content-center align-items-center">
+
     <div class="dataTable border border-2 rounded border-dark w-75" style="height: 40rem">
+        <button><a href="/task/report/{{date('Y-m-d', strtotime($result[0]["assignedDate"]))}}/{{date('Y-m-d', strtotime($result[0]["endDate"]))}}" target="_blank" rel="noopener noreferrer"> Generate Pdf</a></button>
         <table id="myTable" class="display">
             <thead>
                 <tr>
@@ -16,12 +18,12 @@
             </thead>
             <tbody>
 
-                @foreach ($data as $data)
+                @foreach ($result as $data)
                 <tr>
                     <th scope="row" class="text-center">{{$data["taskID"]}}</th>
                     <td class="text-center">{{$data["taskInfo"]}}</td>
-                    <td class="text-center">{{$data["assignedDate"]}}</td>
-                    <td class="text-center">{{$data["endDate"]}}</td>
+                    <td class="text-center">{{date('Y-m-d', strtotime($data["assignedDate"]))}}</td>
+                    <td class="text-center">{{date('Y-m-d', strtotime($data["endDate"]))}}</td>
                     <td class="text-center">@if ($data["taskStatus"]==0)
                         <span class="badge text-bg-secondary">Not Completed</span>
                         @elseif($data["taskStatus"]==1)
@@ -44,3 +46,7 @@
     </div>
 </div>
 @endsection
+
+
+
+{{-- {{route("findTask",[date('Y-m-d', strtotime($result[0]["assignedDate"])),date('Y-m-d', strtotime($result[0]["endDate"]))])}} --}}
