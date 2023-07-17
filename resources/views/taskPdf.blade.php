@@ -12,10 +12,12 @@
 
 <body>
     <div class="head">
-        <h2>Report of Task from</h2>
+        <h2>Report of Task </h2>
         <div style="display: flex">
-            <span>{{date('d-m-Y', strtotime($result[0]["assignedDate"]))}}</span>
-            <span>{{date('d-m-Y', strtotime($result[0]["endDate"]))}}</span>
+            from
+            <span style="margin-right:0.5rem ">{{date('d-m-Y', strtotime($result[0]["assignedDate"]))}}</span>
+            to
+            <span style="margin-left:0.5rem ">{{date('d-m-Y', strtotime($result[0]["endDate"]))}}</span>
         </div>
     </div>
     </div>

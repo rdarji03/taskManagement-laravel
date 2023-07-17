@@ -4,7 +4,7 @@
 <div class="taskContainer w-full min-vh-100 d-flex justify-content-center align-items-center">
 
     <div class="dataTable border border-2 rounded border-dark w-75" style="height: 40rem">
-        <button><a href="/task/report/{{date('Y-m-d', strtotime($result[0]["assignedDate"]))}}/{{date('Y-m-d', strtotime($result[0]["endDate"]))}}" target="_blank" rel="noopener noreferrer"> Generate Pdf</a></button>
+        <button><a href="/task/report/{{$aDate}}/{{$edate}}" target="_blank" rel="noopener noreferrer"> Generate Pdf</a></button>
         <table id="myTable" class="display">
             <thead>
                 <tr>
@@ -49,4 +49,3 @@
 
 
 
-{{-- {{route("findTask",[date('Y-m-d', strtotime($result[0]["assignedDate"])),date('Y-m-d', strtotime($result[0]["endDate"]))])}} --}}

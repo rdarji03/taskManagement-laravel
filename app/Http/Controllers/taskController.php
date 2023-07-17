@@ -43,6 +43,6 @@ class taskController extends Controller
         $assignedDate = $req->startDate;
         $aDate=date('Y-m-d', strtotime($assignedDate));
         $result = alocatedTask::where('assignedDate', $aDate)->where("endDate", $eDate)->get();
-        return view("dashboard.admin.findTask")->with("result" ,$result);
+        return view("dashboard.admin.findTask",["result" =>$result,"edate"=>$eDate,"aDate"=>$aDate]);
     }
 }
