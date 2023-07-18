@@ -12,10 +12,9 @@
 <body>
     <nav class="navbar navbar-expand-lg" style="background-color: #7952b3">
         <div class="container-fluid">
-            <h4>Task Management System</h4>
+            <h4>{{auth()->user()->name}}</h4>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <h4>{{auth()->user()->name}}</h4>
-                <button class="btn btn-outline-success" type="submit"><a href="/logout">logut</a></button>
+                <button class="btn btn-outline-success" type="submit"><a href="/logout" class=" text-white">logut</a></button>
             </div>
         </div>
     </nav>
