@@ -31,11 +31,7 @@
                     </div>
 
                     <div class="d-flex justify-content-center">
-                        <form action="/importExcel" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <input type="file" name="taskdetail" id="">
-                            <button type="submit">Import Excel</button>
-                        </form>
+                       
                         <button type="submit" class="btn btn-success mx-2"><a href="/admin/addTask" target="_blank"
                                 rel="noopener noreferrer" class="text-decoration-none text-white">Add task</a></button>
                         <button type="submit" class="btn btn-primary mx-2"><a href="/export/excel"

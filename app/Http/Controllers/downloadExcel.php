@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Exports\taskData;
 use App\Imports\taskExcel;
-use App\Imports\TaskExcel as ImportsTaskExcel;
-use App\Imports\TaskList;
 use App\Models\alocatedTask;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -15,6 +13,10 @@ class downloadExcel extends Controller
     /**
      * @return \Illuminate\Support\Collection
      */
+    public function viewImportExport(){
+        return view("dashboard.admin.importExcell");
+    }
+
     public function index()
     {
         $users = alocatedTask::get();
@@ -40,21 +42,11 @@ class downloadExcel extends Controller
     }
     public function upload(Request $request)
     {
-        // if ($request->file('taskdetail') == null) {
-        //     return "null";
-        // }else{
-        //    $file = $request->file('taskdetail')->store('images');  
-        // }
 
-
-
-        // request()->validate([
-        //     'taskExcel' => 'required|mimes:xlx,xls|max:2048',
-        // ]);
         try {
-            $filepath=$request->file("taskdetail")->store("temp");
+            $filepath = $request->file("taskdetail")->store("temp");
             // return $filepath;
-            Excel::import(new TaskExcel,  $filepath);
+            Excel::import(new TaskExcel, $filepath);
             return "excel imported";
 
         } catch (\Exception $e) {
