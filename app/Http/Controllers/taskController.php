@@ -26,7 +26,7 @@ class taskController extends Controller
     {
         return view("dashboard.admin.updateTask");
     }
-    public function updateTask(Request $req, $id)
+    public function updateTaskStatus(Request $req, $id)
     {
         $status = $req->updateStatus;
         $tstatus = (int) $status;
@@ -44,5 +44,16 @@ class taskController extends Controller
         $aDate=date('Y-m-d', strtotime($assignedDate));
         $result = alocatedTask::where('assignedDate', $aDate)->where("endDate", $eDate)->get();
         return view("dashboard.admin.findTask",["result" =>$result,"edate"=>$eDate,"aDate"=>$aDate]);
+    }
+    public function editTask(){
+        return view("dashboard.admin.editTask");
+    }
+    public function updateTask(Request $req,$id)
+    {
+        $taskData = $req->taskDetail;
+        $assignedDate = $req->assignedDate;
+        $endDate = $req->endDate;
+        alocatedTask::where('taskId', $id)->update(["taskInfo" => $taskData, "assignedDate" => $assignedDate, "endDate" => $endDate]);
+        return redirect()->route("admin.home");
     }
 }

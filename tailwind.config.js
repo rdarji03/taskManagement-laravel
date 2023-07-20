@@ -4,7 +4,9 @@ export default {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
-        "./node_modules/@themesberg/flowbite/**/*.js"
+        "./src/**/*.{html,js}",
+        "./node_modules/tw-elements/dist/js/**/*.js",
+        "./node_modules/flowbite/**/*.js"
 
     ],
 
@@ -12,7 +14,9 @@ export default {
         extend: {},
     },
     plugins: [
-        require('@themesberg/flowbite/plugin')
+        require('@themesberg/flowbite/plugin'),
+        require("tw-elements/dist/plugin.cjs")
 
     ],
+
 };
