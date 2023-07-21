@@ -26,10 +26,10 @@
                         <table id="myTable" class="display">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="text-center">User Id</th>
-                                    <th scope="col" class="text-center">Name</th>
-                                    <th scope="col" class="text-center">Role</th>
-                                    <th scope="col" class="text-center">Action</th>
+                                    <th scope="col" class="text-center" style="text-align: center">User Id</th>
+                                    <th scope="col" class="text-center" style="text-align: center">Name</th>
+                                    <th scope="col" class="text-center" style="text-align: center">Role</th>
+                                    <th scope="col" class="text-center" style="text-align: center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,7 +39,7 @@
 
 
                                     <tr>
-                                        <th scope="row" class="text-center">{{$data["id"]}}</th>
+                                        <th scope="row" class="text-center" >{{$data["id"]}}</th>
                                         <td class="text-center">{{$data["name"]}}</td>
                                         <td class="text-center">@if($data["u_type"]==0)
                                             <p>Staff</p>
@@ -48,7 +48,7 @@
                                         </td>
                                         <td class="text-center">
                                             <a href={{ 'user/delet/' . $data['id'] }}>
-                                                <button class="btn btn-danger">
+                                                <button class=" bg-red-400 p-1 rounded">
                                                     Remove
                                                 </button>
                                             </a>

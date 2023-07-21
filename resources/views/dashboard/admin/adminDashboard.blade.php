@@ -45,7 +45,7 @@
                     </div>
                     <div class="taskTable container d-flex flex-column align-items-center w-100 ">
 
-                        <div class="dataTable  border-2 rounded border-dark w-75" style="height: 36rem;overflow: auto;">
+                        <div class="dataTable  border-2 rounded border-dark w-75" style="min-height: 36rem;overflow: auto;">
                             <table id="myTable" class="display">
                                 <thead>
                                     <tr>
@@ -67,11 +67,11 @@
                                             </td>
                                             <td class="text-center">{{date('Y-m-d', strtotime($data["endDate"]))}}</td>
                                             <td class="text-center">@if ($data["taskStatus"]==0)
-                                                <span class="badge text-bg-secondary">Not Completed</span>
+                                                <span class="badge bg-gray-400 p-1 rounded text-gray-950">Not Completed</span>
                                                 @elseif($data["taskStatus"]==1)
-                                                <span class="badge text-bg-success">Completed</span>
+                                                <span class="badge bg-green-400 p-1 rounded">Completed</span>
                                                 @else
-                                                <span class="badge text-bg-info">In progress</span>
+                                                <span class="badge bg-blue-400 p-1 rounded">In progress</span>
                                                 @endif
                                             </td>
                                             <td class="text-center">
@@ -81,7 +81,7 @@
                                                     </button>
                                                 </a>
                                                 <a href={{ 'edit/' . $data['taskID'] }} target="_blank">
-                                                    <button class="bg-red-400 mx-2 p-1  border rounded">
+                                                    <button class="bg-blue-400 mx-2 p-1  border rounded">
                                                         <img src="{{ asset("img/action-icons/edit.png") }}" class="h-[1.5rem]" alt="description of myimage">
                                                     </button>
                                                 </a>

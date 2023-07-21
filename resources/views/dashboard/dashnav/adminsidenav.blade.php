@@ -4,8 +4,8 @@
     </div>
     <nav id="sidebarMenu" class="p-2">
         <div>
-            <div class="list-group list-group-flush">
-                <ul>
+            <div class="list-group list-group-flush rounded">
+                <ul class="">
                     <div class="p-2">
                         <ul>
                             <li >
@@ -39,7 +39,7 @@
                                             class="text-gray-900 text-decoration-none  p-1">Staff List</a></li>
                                     <li class="py-1"><a href="/register"
                                             class="text-gray-900 text-decoration-none p-1">Add
-                                            Staff</a></li>
+                                            User</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                     <div>
                         <h2 class="mb-0" id="flush-headingThree">
                             <button
-                                class="group relative flex w-full items-center rounded-none border-0  p-2 text-left text-base text-white transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white  [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+                                class="group relative flex w-full items-center   p-2 text-left text-base text-white transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white  [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
                                 type="button" data-te-collapse-init data-te-collapse-collapsed
                                 data-te-target="#flush-collapseThree" aria-expanded="false"
                                 aria-controls="flush-collapseThree">
@@ -64,7 +64,7 @@
                         </h2>
                         <div id="flush-collapseThree" class="!visible hidden rounded" data-te-collapse-item
                             aria-labelledby="flush-headingThree" data-te-parent="#accordionFlushExample">
-                            <ul class="block text-sm bg-white text-left border rounded" aria-labelledby="dropdownLargeButton">
+                            <ul class="block text-sm bg-white text-left " aria-labelledby="dropdownLargeButton">
                                 <li class="py-1"><a href="/admin/importExcel"
                                         class="text-gray-900 text-decoration-none p-3">Import Task</a></li>
                             </ul>

@@ -6,6 +6,7 @@ use App\Exports\taskData;
 use App\Imports\taskExcel;
 use App\Models\alocatedTask;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Maatwebsite\Excel\Facades\Excel;
 
 class downloadExcel extends Controller
@@ -47,7 +48,7 @@ class downloadExcel extends Controller
             $filepath = $request->file("taskdetail")->store("temp");
             // return $filepath;
             Excel::import(new TaskExcel, $filepath);
-            return "excel imported";
+            return redirect("");
 
         } catch (\Exception $e) {
             dd($e->getMessage());
