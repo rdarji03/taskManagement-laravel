@@ -8,12 +8,12 @@
                 <ul class="">
                     <div class="p-2">
                         <ul>
-                            <li >
+                            <li>
                                 <a class="text-white text-decoration-none p-1" href="/admin/home">Dashboard </a>
                             </li>
                         </ul>
                     </div>
-                    <div id="accordionFlushExample" class="my-4" >
+                    <div id="accordionFlushExample" class="my-4">
                         <div class="">
                             <h2 class="mb-0" id="flush-headingTwo">
                                 <button
@@ -40,6 +40,8 @@
                                     <li class="py-1"><a href="/register"
                                             class="text-gray-900 text-decoration-none p-1">Add
                                             User</a></li>
+                                    <li class="py-1"><a href="/admin/appliedLeave"
+                                            class="text-gray-900 text-decoration-none p-1">Applied Leave</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -43,9 +43,10 @@
                                     class="text-decoration-none text-white" target="_blank">Export Pdf</a></button>
                         </div>
                     </div>
+                    
                     <div class="taskTable container d-flex flex-column align-items-center w-100 ">
 
-                        <div class="dataTable  border-2 rounded border-dark w-75" style="min-height: 36rem;overflow: auto;">
+                        <div class="dataTable  border-2 rounded border-dark w-75" style="max-height: 36rem;overflow: auto;">
                             <table id="myTable" class="display">
                                 <thead>
                                     <tr>

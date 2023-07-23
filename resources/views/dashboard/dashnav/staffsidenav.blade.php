@@ -7,7 +7,7 @@
             <a href="/staff/home" class="text-white text-decoration-none p-3">Dashboard</a>
         </div>
        <div class="list-group list-group-flush">
-            <a href="/staff/leave" class="text-white text-decoration-none p-3"> Apply Leave</a>
+            <a href="leave/{{auth()->user()->id}}" class="text-white text-decoration-none p-3"> Apply Leave</a>
         </div>
     </nav>
 
