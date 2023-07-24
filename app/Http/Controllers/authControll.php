@@ -19,6 +19,7 @@ class authControll extends Controller
             "email" => "required|unique:users",
             "password" => "required",
         ]);
+
         $usertype = $req->u_type;
         $data["name"] = $req->uname;
         $data["email"] = $req->email;

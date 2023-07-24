@@ -30,5 +30,10 @@ class viewControll extends Controller
     {
         return view("dashboard.admin.addTask");
     }
+    
+    public function showMailForm()
+    {
+        return view("dashboard.staff.email");
+    }
 
 }

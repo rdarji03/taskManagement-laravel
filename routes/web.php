@@ -4,6 +4,7 @@ use App\Http\Controllers\authControll;
 use App\Http\Controllers\downloadExcel;
 use App\Http\Controllers\exportPdf;
 use App\Http\Controllers\leaveHandle;
+use App\Http\Controllers\mailController;
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\userControll;
 use App\Http\Controllers\viewControll;
@@ -27,6 +28,8 @@ Route::get("admin/importExcel", [downloadExcel::class, "viewImportExport"]);
 Route::get("admin/appliedLeave", [leaveHandle::class, "showLeave"])->name("admin.leaveaction");
 Route::get("admin/denied/{leaveId}", [leaveHandle::class, "deniedLeave"]);
 Route::get("admin/approved/{leaveId}", [leaveHandle::class, "approveLeave"]);
+Route::get("staff/sendMail", [viewControll::class, "showMailForm"])->name("staff.email");
+Route::post("staff/sendMail", [mailController::class, "postMail"]);
 Route::group(['middleware' => 'auth'], function () {
     Route::get("/staff/leave/{id}", [leaveHandle::class, "showStaffLeave"])->name("staff.leave");
     Route::get("/staff/leave/form/{id}", [leaveHandle::class, "showLeaveForm"]);

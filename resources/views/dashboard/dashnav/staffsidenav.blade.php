@@ -8,10 +8,7 @@
         </div>
        <div class="list-group list-group-flush">
             <a href="leave/{{auth()->user()->id}}" class="text-white text-decoration-none p-3"> Apply Leave</a>
+            <a href="sendMail" class="text-white text-decoration-none p-3"> Send Mail</a>
         </div>
     </nav>
-
-
-
-
 </header>
