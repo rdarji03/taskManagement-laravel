@@ -33,7 +33,6 @@ class authControll extends Controller
         }
 
     }
-    
     public function loginPost(Request $req)
     {
         $req->validate([

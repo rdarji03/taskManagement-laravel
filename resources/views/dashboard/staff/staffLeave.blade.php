@@ -20,7 +20,6 @@
             </div>
             <div class="adminSection w-[90%]">
                 <div class="">
-                    @include("includes.navbar")
                     <div class="m-3 flex  flex-col items-center">
                         <a href="/staff/leave/form/{{auth()->user()->id}}" target="_blank" rel="noopener noreferrer" class="">Apply Leave</a>
                     </div>
