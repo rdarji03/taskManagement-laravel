@@ -3,6 +3,7 @@
 use App\Http\Controllers\authControll;
 use App\Http\Controllers\downloadExcel;
 use App\Http\Controllers\exportPdf;
+use App\Http\Controllers\forgotPassword;
 use App\Http\Controllers\leaveHandle;
 use App\Http\Controllers\mailController;
 use App\Http\Controllers\taskController;
@@ -29,12 +30,16 @@ Route::get("admin/appliedLeave", [leaveHandle::class, "showLeave"])->name("admin
 Route::get("admin/denied/{leaveId}", [leaveHandle::class, "deniedLeave"]);
 Route::get("admin/approved/{leaveId}", [leaveHandle::class, "approveLeave"]);
 Route::get("staff/sendMail", [viewControll::class, "showMailForm"])->name("staff.email");
-Route::post("staff/sendMail", [mailController::class, "postMail"]);
+Route::get("resetPassword", [viewControll::class, "showPasswordForm"])->name("user.resetPasswordForm");
+Route::get("updatePassword/{token}", [viewControll::class, "resetPasswordForm"])->name("user.resetPassword");
 Route::group(['middleware' => 'auth'], function () {
     Route::get("/staff/leave/{id}", [leaveHandle::class, "showStaffLeave"])->name("staff.leave");
     Route::get("/staff/leave/form/{id}", [leaveHandle::class, "showLeaveForm"]);
     Route::post("/staff/leave/form/{id}", [leaveHandle::class, "postLeave"]);
 });
+Route::post("updatePassword/{token}", [forgotPassword::class, "updatePassword"]);
+Route::post("/resetPassword",[forgotPassword::class,"resetPassword"]);
+Route::post("staff/sendMail", [mailController::class, "postMail"]);
 Route::post('admin/edit/{taskID}', [taskController::class, "updateTask"]);
 Route::post("/importExcel", [downloadExcel::class, "upload"]);
 Route::post("/findTask", [taskController::class, "findTask"]);

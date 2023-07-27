@@ -1,0 +1,1 @@
+<a href={{"updatePassword/".$token}}>Change Password</a>

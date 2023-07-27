@@ -30,10 +30,16 @@ class viewControll extends Controller
     {
         return view("dashboard.admin.addTask");
     }
-    
+
     public function showMailForm()
     {
         return view("dashboard.staff.email");
     }
+    public function showPasswordForm(){
+        return view("auth.forgotPassword");
+    }
+public function resetPasswordForm($token){
+    return view("auth.resertPasswordForm",["token"=>$token]);
+}
 
 }
