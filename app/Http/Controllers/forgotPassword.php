@@ -27,7 +27,6 @@ class forgotPassword extends Controller
         return redirect()->route("user.resetPassword",["token"=>$token])->with("success","Request Send Successfully");
     }
     function updatePassword(Request $req){
-        // return gettype($req->token);
      $data=DB::table("password_reset_tokens")->where("email",$req->email)->where("token",$req->token)->get();
         if(!$data){
             return "invalid";

@@ -16,7 +16,6 @@
 <body>
     <div class="container">
 
-
     </div>
     <section class="admin w-100 flex ">
         <div class="side-nav" style="width:10%">
@@ -67,11 +66,12 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($taskList as $data)
+                                        
                                         <tr>
                                             <th scope="row" class="text-center">{{$data["taskID"]}}</th>
                                             <td class="text-center">{{$data["taskInfo"]}}</td>
-                                            <td class="text-center">{{$data["assignedDate"]}}</td>
-                                            <td class="text-center">{{$data["endDate"]}}</td>
+                                            <td class="text-center">{{date('d-m-Y', strtotime($data["assignedDate"]))}}</td>
+                                            <td class="text-center">{{date('d-m-Y', strtotime($data["endDate"]))}}</td>
                                             <td class="text-center">@if ($data["taskStatus"]==0)
                                                 <span class="badge text-bg-secondary">Not Completed</span>
                                                 @elseif($data["taskStatus"]==1)

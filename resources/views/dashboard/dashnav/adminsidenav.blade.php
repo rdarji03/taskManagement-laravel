@@ -3,6 +3,7 @@
         <span class=" text-[1.5rem] font-semibold text-white h-12 ">{{auth()->user()->name}}</span>
     </div>
     <nav id="sidebarMenu" class="p-2">
+        
         <div>
             <div class="list-group list-group-flush rounded">
                 <ul class="">

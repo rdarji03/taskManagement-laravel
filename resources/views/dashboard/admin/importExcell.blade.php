@@ -11,6 +11,15 @@
 </head>
 
 <body style="background-color:#f8f9fa">
+    <div class="sampleExcel" style="display: none">
+        <div class="sample w-[25rem]">        
+        <div class="closeIcon flex justify-end">
+            <img src="{{asset("img/action-icons/close.png")}}" alt="" srcset="" class="h-[1.5rem] cursor-pointer"
+                onclick="closeImg()">
+        </div>
+        <img src="{{asset("img/sampleExcel.png")}}" alt="" srcset="">
+    </div>
+</div>
     <section class="admin w-100 flex ">
         <div class="side-nav" style="width:10%">
             @include("dashboard.dashnav.adminsidenav")
@@ -28,12 +37,10 @@
                             <div class="py-3">
                                 <input type="file" name="taskdetail" id="" class=" border-2 w-full">
                             </div>
-                            <div class="flex justify-end">
-
+                            <div class="flex justify-between">
                                 <button type="submit"
                                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-[20%]">Import
                                     Excel</button>
-                            </div>
                         </form>
                     </div>
 
@@ -51,6 +58,7 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
 </script>
+<script src="{{asset("js/showSample.js")}}"></script>
 
 
 </html>

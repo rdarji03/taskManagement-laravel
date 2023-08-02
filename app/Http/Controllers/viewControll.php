@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\alocatedTask;
+use App\Models\User;
+use App\Models\userAllocatedTask;
+use Illuminate\Support\Facades\DB;
 
 class viewControll extends Controller
 {
@@ -17,14 +20,16 @@ class viewControll extends Controller
     public function adminHome()
     {
         $taskAlocated = new alocatedTask();
+        $userData = new User();
         $taskList = $taskAlocated->all();
-        return view("dashboard.admin.adminDashboard", ["taskList" => $taskList]);
+        $uData=$userData->get(["id","name"]);
+        return view("dashboard.admin.adminDashboard", ["taskList" => $taskList,"uData"=>$uData]);
     }
-    public function staffHome()
+    public function staffHome($id)
     {
-        $taskAlocated = new alocatedTask();
-        $taskList = $taskAlocated->all();
-        return view("dashboard.staff.staffDashboard", ["taskList" => $taskList]);
+        $taskList = DB::table("userAllocatedTask")->where("id",$id)->get();
+        $result= json_decode($taskList ,true);
+        return view("dashboard.staff.staffDashboard", ["taskList" => $result]);
     }
     public function showForm()
     {
@@ -35,11 +40,13 @@ class viewControll extends Controller
     {
         return view("dashboard.staff.email");
     }
-    public function showPasswordForm(){
+    public function showPasswordForm()
+    {
         return view("auth.forgotPassword");
     }
-public function resetPasswordForm($token){
-    return view("auth.resertPasswordForm",["token"=>$token]);
-}
+    public function resetPasswordForm($token)
+    {
+        return view("auth.resertPasswordForm", ["token" => $token]);
+    }
 
 }

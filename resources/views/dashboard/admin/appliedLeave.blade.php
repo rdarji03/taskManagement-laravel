@@ -44,9 +44,9 @@
                                         <tr>
                                             <th scope="row" class="text-center">{{$data["name"]}}</th>
                                             <td class="text-center">{{$data["leaveDesc"]}}</td>
-                                            <td class="text-center">{{date('Y-m-d', strtotime($data["From"]))}}
+                                            <td class="text-center">{{date('d-m-Y', strtotime($data["fromDate"]))}}
                                             </td>
-                                            <td class="text-center">{{date('Y-m-d', strtotime($data["To"]))}}</td>
+                                            <td class="text-center">{{date('d-m-Y', strtotime($data["toDate"]))}}</td>
                                             <td class="text-center">@if ($data["leaveStatus"]==0)
                                                 <span class="badge bg-gray-400 p-1 rounded text-gray-950">Denied</span>
                                                 @elseif($data["leaveStatus"]==1)

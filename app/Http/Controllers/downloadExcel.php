@@ -39,7 +39,7 @@ class downloadExcel extends Controller
     public function import()
     {
         Excel::import(new alocatedTask, request()->file('file'));
-        return back();
+        return redirect()->route("admin.home");
     }
     public function upload(Request $request)
     {

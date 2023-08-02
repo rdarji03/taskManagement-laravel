@@ -13,8 +13,9 @@ class taskController extends Controller
         $taskData = $req->taskDetail;
         $assignedDate = $req->assignedDate;
         $endDate = $req->endDate;
-        DB::table('alocatedTask')->insert(["taskInfo" => $taskData, "assignedDate" => $assignedDate, "endDate" => $endDate]);
-        return redirect()->route("taskForm")->with("success", "task has been added");
+        $uID=(int)$req->uId;
+        DB::table('alocatedTask')->insert(["taskInfo" => $taskData, "assignedDate" => $assignedDate, "endDate" => $endDate,"id"=>$uID]);
+        return redirect()->route("admin.home")->with("success", "task has been added");
 
     }
     public function deletTask($taskID)
