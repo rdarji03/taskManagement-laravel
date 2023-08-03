@@ -19,8 +19,7 @@ Route::get('admin/delet/{taskID}', [taskController::class, "deletTask"]);
 Route::get('admin/edit/{taskID}', [taskController::class, "editTask"]);
 Route::get('/admin/user', [userControll::class, "showUser"])->name("admim.user");
 Route::get('/admin/user/delet/{id}', [userControll::class, "deletUser"]);
-Route::get("staff/home/{id}", [viewControll::class, "staffHome"])->name("staff.home");
-Route::get("staff/update/{id}", [taskController::class, "updateForm"]);
+Route::get("staff/home/update/{id}", [taskController::class, "updateTaskStatus"]);
 Route::get("/export/excel", [downloadExcel::class, "export"]);
 Route::get("/export/pdf", [exportPdf::class, "createPDF"]);
 Route::get("/admin/addTask", [viewControll::class, "showForm"])->name("taskForm");
@@ -33,6 +32,8 @@ Route::get("staff/sendMail", [viewControll::class, "showMailForm"])->name("staff
 Route::get("resetPassword", [viewControll::class, "showPasswordForm"])->name("user.resetPasswordForm");
 Route::get("updatePassword/{token}", [viewControll::class, "resetPasswordForm"])->name("user.resetPassword");
 Route::group(['middleware' => 'auth'], function () {
+    Route::get("staff/home/{id}", [viewControll::class, "staffHome"])->name("staff.home");
+
     Route::get("/staff/leave/{id}", [leaveHandle::class, "showStaffLeave"])->name("staff.leave");
     Route::get("/staff/leave/form/{id}", [leaveHandle::class, "showLeaveForm"]);
     Route::post("/staff/leave/form/{id}", [leaveHandle::class, "postLeave"]);
@@ -44,6 +45,5 @@ Route::post('admin/edit/{taskID}', [taskController::class, "updateTask"]);
 Route::post("/importExcel", [downloadExcel::class, "upload"]);
 Route::post("/findTask", [taskController::class, "findTask"]);
 Route::post("/addTask", [taskController::class, "addTask"]);
-Route::post("staff/update/{id}", [taskController::class, "updateTaskStatus"]);
 Route::post("register", [authControll::class, "registerPost"])->name("registerPost");
 Route::post("/", [authControll::class, "loginPost"])->name("loginPost");

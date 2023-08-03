@@ -22,8 +22,10 @@ class viewControll extends Controller
         $taskAlocated = new alocatedTask();
         $userData = new User();
         $taskList = $taskAlocated->all();
-        $uData=$userData->get(["id","name"]);
-        return view("dashboard.admin.adminDashboard", ["taskList" => $taskList,"uData"=>$uData]);
+        $uData=$userData->get(["id","name","u_type"]);
+        $Task=DB::table("userAllocatedTask")->get();
+        $userTask=json_decode($Task,true);
+        return view("dashboard.admin.adminDashboard", ["taskList" => $userTask,"uData"=>$uData]);
     }
     public function staffHome($id)
     {

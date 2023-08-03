@@ -23,19 +23,18 @@ class taskController extends Controller
         alocatedTask::where('taskID', $taskID)->delete();
         return redirect()->route("admin.home");
     }
-    public function updateForm()
+    public function updateForm($id)
     {
         return view("dashboard.admin.updateTask");
     }
-    public function updateTaskStatus(Request $req, $id)
+    public function updateTaskStatus($id)
     {
-        $status = $req->updateStatus;
-        $tstatus = (int) $status;
+
         alocatedTask::where('taskID', $id)
             ->update([
-                'taskStatus' => (int) $tstatus,
+                'taskStatus' => 1,
             ]);
-        return redirect()->route("staff.home");
+        return back();
     }
     public function findTask(Request $req)
     {

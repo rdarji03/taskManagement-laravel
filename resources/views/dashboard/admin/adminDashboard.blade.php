@@ -38,7 +38,10 @@
                 <label for="userName">Assign Task To:</label>
                 <select name="uId" id="">
                     @foreach ($uData as $data)
-                    <option value="{{$data[" id"]}}">{{$data["name"]}}</option>
+                    @if ($data["u_type"]==0)
+                        
+                    <option value="{{$data["id"]}}">{{$data["name"]}}</option>
+                    @endif
                     @endforeach
                 </select>
             </div>
@@ -87,6 +90,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" class=" text-center" style="text-align: center">Task No</th>
+                                        <th scope="col" class=" text-center" style="text-align: center">Assigned To</th>
                                         <th scope="col" class="text-center" style="text-align: center">Task Information
                                         </th>
                                         <th scope="col" class="text-center" style="text-align: center">Assigned Date
@@ -102,6 +106,11 @@
                                         @foreach ($taskList as $data)
                                         <tr>
                                             <th scope="row" class="text-center">{{$data["taskID"]}}</th>
+                                            <th scope="row" class="text-center">
+                                                    
+                                                 {{$data["name"]}}
+                                                
+                                            </th>
                                             <td class="text-center">{{$data["taskInfo"]}}</td>
                                             <td class="text-center">{{date('Y-m-d', strtotime($data["assignedDate"]))}}
                                             </td>
@@ -124,8 +133,7 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                {{-- <a href="{{ 'edit/' . $data['taskID'] }}" target="_blank"
-                                                    rel="noopener noreferrer"> --}}
+                                               
 
                                                     <div class="editBtn bg-blue-400 mx-2 p-1  border rounded w-fit" >
                                                         
@@ -134,33 +142,35 @@
                                                                 
                                                             <div class="hidden fixed left-[40rem] bg-white rounded shadow-lg">   
                                                                 <form action="{{ 'edit/' . $data['taskID'] }}" method="post"
-                                                                    class="d-flex justify-content-center bg-body-secondary border rounded d-flex flex-column justify-content-center align-items-center p-1 "
+                                                                    class="flex justify-center bg-body-secondary border rounded  p-1 "
                                                                     style="height: 15rem; width:25rem">
                                                                     @csrf
-                                                                    <div class="d-flex align-items-center">
-                                                                        <label for="task" class="mx-3">Task</label>
+                                                                    <div class="formContainer">
+                                                                    <div class="mb-3  flex justify-between  items-center">
+                                                                        <label for="task" class="">Task:</label>
                                                                         <input type="text"
-                                                                            class="form-control shadow-none w-50 p-2 border border-dark"
+                                                                            class="form-control shadow-none w-50 p-2 border border-dark w-[15rem]"
                                                                             id="task" placeholder="write task here..."
                                                                             name="taskDetail">
                                                                     </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="assignedDate">Assigned Date:</label>
+                                                                    <div class="mb-3 flex justify-between items-center">
+                                                                        <label for="assignedDate">Start Date:</label>
                                                                         <input type="date" id="assignedDate"
+                                                                        class="w-[15rem]"
                                                                             name="assignedDate">
                                                                     </div>
-                                                                    <div class="mb-3">
+                                                                    <div class="mb-3 flex justify-between items-center">
                                                                         <label for="endDate">End Date:</label>
-                                                                        <input type="date" id="endDate" name="endDate">
+                                                                        <input type="date" id="endDate" name="endDate" class="w-[15rem]">
                                                                     </div>
-                                                                    <div >
-                                                                    <input type="submit" value="Update Task">
+                                                                    <div class="flex justify-center" >
+                                                                    <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit" value="Update Task">
                                                                     </div>
+                                                                </div>
                                                                 </form>
                                                             </div>    
 
                                                     </div>
-                                                    {{-- </a> --}}
 
                                             </td>
                                         </tr>
