@@ -1,6 +1,7 @@
 <?php
 namespace App\Exports;
 use App\Models\alocatedTask;
+use App\Models\userAllocatedTask;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 class taskData implements FromCollection, WithHeadings
@@ -10,7 +11,7 @@ class taskData implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return alocatedTask::select("taskID", "taskInfo", "assignedDate","endDate","taskStatus")->get();
+        return userAllocatedTask::select("name", "email","taskInfo", "assignedDate","endDate","taskStatus")->get();
     }
     /**
      * Write code on Method
@@ -19,6 +20,6 @@ class taskData implements FromCollection, WithHeadings
      */
     public function headings(): array
     {
-        return ["taskID", "taskInfo", "assignedDate","endDate", "taskStatus"];
+        return ["name", "email","taskInfo", "assignedDate","endDate","taskStatus"];
     }
 }

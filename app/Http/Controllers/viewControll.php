@@ -29,7 +29,8 @@ class viewControll extends Controller
     }
     public function staffHome($id)
     {
-        $taskList = DB::table("userAllocatedTask")->where("id",$id)->get();
+        $sid=(int)$id;
+        $taskList = DB::table("userAllocatedTask")->where("id",$sid)->get();
         $result= json_decode($taskList ,true);
         return view("dashboard.staff.staffDashboard", ["taskList" => $result]);
     }

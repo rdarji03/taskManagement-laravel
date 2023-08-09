@@ -20,7 +20,7 @@
                 @include("includes.navbar")
                 <div class="m-3 flex  flex-col items-center">
 
-                    <div class="w-full max-w-xs">
+                    <div class="w-full max-w-[25rem] bg-white shadow-md rounded  p-2 h-auto">
                         <form method="post" class="space-y-8">
                             @csrf
                             <div>

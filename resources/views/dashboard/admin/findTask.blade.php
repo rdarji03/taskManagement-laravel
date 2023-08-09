@@ -20,9 +20,9 @@
                 @include("includes.navbar")
                 <div class="m-3 flex  flex-col items-center">
 
+                    <button class="bg-green-500 p-1 rounded text-white my-2"><a href="/task/report/{{$aDate}}/{{$edate}}" target="_blank" rel="noopener noreferrer">
+                            Generate Pdf</a></button>
                     <div class="dataTable  border-2 rounded border-gray-900 w-full" style="height: 40rem">
-                        <button><a href="/task/report/{{$aDate}}/{{$edate}}" target="_blank" rel="noopener noreferrer">
-                                Generate Pdf</a></button>
                         <table id="myTable" class="display">
                             <thead>
                                 <tr>

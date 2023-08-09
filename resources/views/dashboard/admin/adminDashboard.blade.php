@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
-    @vite(['resources/css/app.css','resources/js/app.js'])
-
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+   
 </head>
 
 <body style="background-color:#f8f9fa">
@@ -17,8 +17,8 @@
             style="height: auto; width:25rem">
             @csrf
             <div class="closeIcon flex justify-end">
-                <img src="{{asset("img/action-icons/close.png")}}" alt="" srcset="" class="h-[1.5rem] cursor-pointer"
-                    onclick="closeForm()">
+                <img src="{{ asset('img/action-icons/close.png') }}" alt="" srcset=""
+                    class="h-[1.5rem] cursor-pointer" onclick="closeForm()">
             </div>
             <div class="mb-6 flex flex-col">
                 <label for="task">Task</label>
@@ -38,10 +38,9 @@
                 <label for="userName">Assign Task To:</label>
                 <select name="uId" id="">
                     @foreach ($uData as $data)
-                    @if ($data["u_type"]==0)
-                        
-                    <option value="{{$data["id"]}}">{{$data["name"]}}</option>
-                    @endif
+                        @if ($data['u_type'] == 0)
+                            <option value="{{ $data['id'] }}">{{ $data['name'] }}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>
@@ -53,11 +52,11 @@
     </div>
     <section class="admin w-100 flex ">
         <div class="side-nav" style="width:10%">
-            @include("dashboard.dashnav.adminsidenav")
+            @include('dashboard.dashnav.adminsidenav')
         </div>
         <div class="adminSection w-[90%]">
             <div class="">
-                @include("includes.navbar")
+                @include('includes.navbar')
                 <div class="m-3 flex  flex-col items-center">
                     <div class="task-container container my-2 flex w-full justify-between">
                         <div class="searchForm ">
@@ -74,9 +73,11 @@
 
                         <div>
 
-                            <button class="bg-green-400 mx-2 p-2  border rounded" onclick="showForm()">Add Task</button>
-                            <button type="submit" class="bg-green-400 mx-2 p-2  border rounded "><a href="/export/excel"
-                                    class="text-decoration-none text-white">Export Excel</a></button>
+                            <button class="bg-green-400 mx-2 p-2  border rounded text-white" onclick="showForm()">Add
+                                Task</button>
+                            <button type="submit" class="bg-green-400 mx-2 p-2  border rounded "><a
+                                    href="/export/excel" class="text-decoration-none text-white">Export
+                                    Excel</a></button>
                             <button type="submit" class=" bg-green-400 mx-2 p-2  border rounded"><a href="/export/pdf"
                                     class="text-decoration-none text-white" target="_blank">Export Pdf</a></button>
                         </div>
@@ -90,8 +91,10 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" class=" text-center" style="text-align: center">Task No</th>
-                                        <th scope="col" class=" text-center" style="text-align: center">Assigned To</th>
-                                        <th scope="col" class="text-center" style="text-align: center">Task Information
+                                        <th scope="col" class=" text-center" style="text-align: center">Assigned To
+                                        </th>
+                                        <th scope="col" class="text-center" style="text-align: center">Task
+                                            Information
                                         </th>
                                         <th scope="col" class="text-center" style="text-align: center">Assigned Date
                                         </th>
@@ -104,76 +107,94 @@
                                 <tbody>
                                     <div class="">
                                         @foreach ($taskList as $data)
-                                        <tr>
-                                            <th scope="row" class="text-center">{{$data["taskID"]}}</th>
-                                            <th scope="row" class="text-center">
-                                                    
-                                                 {{$data["name"]}}
-                                                
-                                            </th>
-                                            <td class="text-center">{{$data["taskInfo"]}}</td>
-                                            <td class="text-center">{{date('Y-m-d', strtotime($data["assignedDate"]))}}
-                                            </td>
-                                            <td class="text-center">{{date('Y-m-d', strtotime($data["endDate"]))}}</td>
-                                            <td class="text-center">@if ($data["taskStatus"]==0)
-                                                <span class="badge bg-gray-400 p-1 rounded text-gray-950">Not
-                                                    Completed</span>
-                                                @elseif($data["taskStatus"]==1)
-                                                <span class="badge bg-green-400 p-1 rounded">Completed</span>
-                                                @else
-                                                <span class="badge bg-blue-400 p-1 rounded">In progress</span>
-                                                @endif
-                                            </td>
-                                            <td class="text-center">
-                                                <a href={{ 'delet/' . $data['taskID'] }}>
-                                                    <button class="bg-red-400 mx-2 p-1  border rounded">
-                                                        <img src="{{ asset("img/action-icons/delet.png") }}"
-                                                            class="h-[1.5rem]" alt="description of myimage">
-                                                    </button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                               
+                                            <tr>
+                                                <th scope="row" class="text-center">{{ $data['taskID'] }}</th>
+                                                <th scope="row" class="text-center">
 
-                                                    <div class="editBtn bg-blue-400 mx-2 p-1  border rounded w-fit" >
-                                                        
-                                                            <img src="{{ asset("img/action-icons/edit.png") }}"
-                                                                class="h-[1.5rem]"/>
-                                                                
-                                                            <div class="hidden fixed left-[40rem] bg-white rounded shadow-lg">   
-                                                                <form action="{{ 'edit/' . $data['taskID'] }}" method="post"
-                                                                    class="flex justify-center bg-body-secondary border rounded  p-1 "
-                                                                    style="height: 15rem; width:25rem">
-                                                                    @csrf
-                                                                    <div class="formContainer">
-                                                                    <div class="mb-3  flex justify-between  items-center">
-                                                                        <label for="task" class="">Task:</label>
+                                                    {{ $data['name'] }}
+
+                                                </th>
+                                                <td class="text-center">{{ $data['taskInfo'] }}</td>
+                                                <td class="text-center">
+                                                    {{ date('Y-m-d', strtotime($data['assignedDate'])) }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ date('Y-m-d', strtotime($data['endDate'])) }}</td>
+                                                <td class="text-center">
+                                                    @if ($data['taskStatus'] == 0)
+                                                        <span class="badge bg-gray-400 p-1 rounded text-gray-950">Not
+                                                            Completed</span>
+                                                    @elseif($data['taskStatus'] == 1)
+                                                        <span class="badge bg-green-400 p-1 rounded">Completed</span>
+                                                    @else
+                                                        <span class="badge bg-blue-400 p-1 rounded">In progress</span>
+                                                    @endif
+                                                </td>
+                                                <td class="text-center">
+                                                    <a href={{ 'delet/' . $data['taskID'] }}>
+                                                        <button class="bg-red-400 mx-2 p-1  border rounded">
+                                                            <img src="{{ asset('img/action-icons/delet.png') }}"
+                                                                class="h-[1.5rem]" alt="description of myimage">
+                                                        </button>
+                                                    </a>
+                                                </td>
+                                                <td>
+
+
+                                                    <div class="editBtn bg-blue-400 mx-2 p-1  border rounded w-fit">
+
+                                                        <img src="{{ asset('img/action-icons/edit.png') }}"
+                                                            class="h-[1.5rem]" />
+
+                                                        <div
+                                                            class="hidden fixed  left-0  top-0 rounded editForm w-[100%] h-[100%]">
+
+                                                            <form action="{{ 'edit/' . $data['taskID'] }}"
+                                                                method="post"
+                                                                class="flex flex-col justify-center bg-body-secondary border rounded  p-1  bg-white w-[30rem] eForm"
+                                                                >
+
+                                                                @csrf
+                                                                <div class="closeBtn flex justify-end">
+                                                                    <img src="{{ asset('img/action-icons/close.png') }}"
+                                                                        class="h-[1.5rem] " />
+                                                                </div>
+                                                                <div class="formContainer" style="height: 15rem; width:25rem">
+                                                                    <div
+                                                                        class="mb-3  flex justify-between  items-center">
+                                                                        <label for="task"
+                                                                            class="">Task:</label>
                                                                         <input type="text"
                                                                             class="form-control shadow-none w-50 p-2 border border-dark w-[15rem]"
-                                                                            id="task" placeholder="write task here..."
+                                                                            id="task"
+                                                                            placeholder="write task here..."
                                                                             name="taskDetail">
                                                                     </div>
-                                                                    <div class="mb-3 flex justify-between items-center">
+                                                                    <div
+                                                                        class="mb-3 flex justify-between items-center">
                                                                         <label for="assignedDate">Start Date:</label>
                                                                         <input type="date" id="assignedDate"
-                                                                        class="w-[15rem]"
-                                                                            name="assignedDate">
+                                                                            class="w-[15rem]" name="assignedDate">
                                                                     </div>
-                                                                    <div class="mb-3 flex justify-between items-center">
+                                                                    <div
+                                                                        class="mb-3 flex justify-between items-center">
                                                                         <label for="endDate">End Date:</label>
-                                                                        <input type="date" id="endDate" name="endDate" class="w-[15rem]">
+                                                                        <input type="date" id="endDate"
+                                                                            name="endDate" class="w-[15rem]">
                                                                     </div>
-                                                                    <div class="flex justify-center" >
-                                                                    <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit" value="Update Task">
+                                                                    <div class="flex justify-center">
+                                                                        <input
+                                                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                                                            type="submit" value="Update Task">
                                                                     </div>
                                                                 </div>
-                                                                </form>
-                                                            </div>    
+                                                            </form>
+                                                        </div>
 
                                                     </div>
 
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
                                         @endforeach
                                     </div>
                                 </tbody>
@@ -194,7 +215,7 @@
 <script>
     let table = new DataTable('#myTable');
 </script>
-<script src="{{asset("js/showForm.js")}}"></script>
-<script src="{{asset("js/showEditForm.js")}}"></script>
+<script src="{{ asset('js/showForm.js') }}"></script>
+<script src="{{ asset('js/showEditForm.js') }}"></script>
 
 </html>

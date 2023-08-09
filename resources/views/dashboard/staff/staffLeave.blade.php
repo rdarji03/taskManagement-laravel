@@ -11,15 +11,16 @@
 </head>
 
 <body>
-    <div class="container">
-        <section class="admin w-100 flex ">
-            <div class="side-nav" style="width:10%">
+    <div class="">
+        <section class="admin w-[100%] flex ">
+            <div class="side-nav w-[10%]">
                 @include("dashboard.dashnav.staffsidenav")
             </div>
             <div class="adminSection w-[90%]">
                 <div class="">
-                    <div class="m-3 flex  flex-col items-center">
-                        <a href="/staff/leave/form/{{auth()->user()->id}}" target="_blank" rel="noopener noreferrer" class="">Apply Leave</a>
+                    @include("includes.navbar")
+                    <div class="m-3 flex  flex-col items-center ">
+                        <a href="/staff/leave/form/{{auth()->user()->id}}" target="_blank" rel="noopener noreferrer" class="bg-blue-400 p-1 rounded text-white">Apply Leave</a>
                     </div>
                     @if (session('success'))
                     <div id="alert-2"
@@ -67,11 +68,9 @@
                                             </td>
                                             <td class="text-center">{{date('d-m-Y', strtotime($data["toDate"]))}}</td>
                                             <td class="text-center">@if ($data["leaveStatus"]==0)
-                                                <span class="text-thin bg-blue-500 p-1 rounded text-white">Applied</span>
-                                                @elseif($data["leaveStatus"]==1)
-                                                <span class="badge bg-green-400 p-1 rounded">Approved</span>
+                                                <span class="badge bg-red-400 p-1 rounded text-white">Denied</span>
                                                 @else
-                                                <span class="badge bg-blue-400 p-1 rounded">Denied</span>
+                                                <span class="badge bg-green-400 p-1 rounded text-white">Approved</span>
                                                 @endif
                                             </td>
                                          

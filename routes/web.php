@@ -33,7 +33,6 @@ Route::get("resetPassword", [viewControll::class, "showPasswordForm"])->name("us
 Route::get("updatePassword/{token}", [viewControll::class, "resetPasswordForm"])->name("user.resetPassword");
 Route::group(['middleware' => 'auth'], function () {
     Route::get("staff/home/{id}", [viewControll::class, "staffHome"])->name("staff.home");
-
     Route::get("/staff/leave/{id}", [leaveHandle::class, "showStaffLeave"])->name("staff.leave");
     Route::get("/staff/leave/form/{id}", [leaveHandle::class, "showLeaveForm"]);
     Route::post("/staff/leave/form/{id}", [leaveHandle::class, "postLeave"]);
