@@ -7,7 +7,7 @@
         <div>
             <div class="list-group list-group-flush rounded">
                 <ul class="">
-                    <div class="p-2">
+                    <div class="py-2">
                         <ul>
                             <li>
                                 <a class="text-white text-decoration-none p-1" href="/admin/home">Dashboard </a>
@@ -18,7 +18,7 @@
                         <div class="">
                             <h2 class="mb-0" id="flush-headingTwo">
                                 <button
-                                    class="group relative flex w-full items-center rounded-none border-0  p-2 text-left text-base text-white transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white  [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+                                    class="group relative flex w-full items-center rounded-none border-0  py-2 text-left text-base text-white transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white  [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
                                     type="button" data-te-collapse-init data-te-collapse-collapsed
                                     data-te-target="#flush-collapseTwo" aria-expanded="false"
                                     aria-controls="flush-collapseTwo">
@@ -50,7 +50,7 @@
                     <div>
                         <h2 class="mb-0" id="flush-headingThree">
                             <button
-                                class="group relative flex w-full items-center   p-2 text-left text-base text-white transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white  [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+                                class="group relative flex w-full items-center   py-2 text-left text-base text-white transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white  [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
                                 type="button" data-te-collapse-init data-te-collapse-collapsed
                                 data-te-target="#flush-collapseThree" aria-expanded="false"
                                 aria-controls="flush-collapseThree">

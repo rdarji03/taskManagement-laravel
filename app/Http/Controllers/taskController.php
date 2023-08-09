@@ -53,7 +53,7 @@ class taskController extends Controller
         $taskData = $req->taskDetail;
         $assignedDate = $req->assignedDate;
         $endDate = $req->endDate;
-        alocatedTask::where('taskId', $id)->update(["taskInfo" => $taskData, "assignedDate" => $assignedDate, "endDate" => $endDate]);
+        alocatedTask::where('taskId', $id)->update(["taskInfo" => $taskData, "assignedDate" => $assignedDate, "endDate" => $endDate,'taskStatus' => 0]);
         return redirect()->route("admin.home");
     }
 }
