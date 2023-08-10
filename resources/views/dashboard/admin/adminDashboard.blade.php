@@ -7,7 +7,6 @@
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-   
 </head>
 
 <body style="background-color:#f8f9fa">
@@ -116,18 +115,17 @@
                                                 </th>
                                                 <td class="text-center">{{ $data['taskInfo'] }}</td>
                                                 <td class="text-center">
-                                                    {{ date('Y-m-d', strtotime($data['assignedDate'])) }}
+                                                    {{ date('d-m-Y', strtotime($data['assignedDate'])) }}
                                                 </td>
                                                 <td class="text-center">
-                                                    {{ date('Y-m-d', strtotime($data['endDate'])) }}</td>
+                                                    {{ date('d-m-Y', strtotime($data['endDate'])) }}</td>
                                                 <td class="text-center">
                                                     @if ($data['taskStatus'] == 0)
-                                                        <span class="badge bg-gray-400 p-1 rounded text-gray-950">Not
+                                                        <span class="badge bg-gray-400 p-1 rounded text-white">Not
                                                             Completed</span>
-                                                    @elseif($data['taskStatus'] == 1)
-                                                        <span class="badge bg-green-400 p-1 rounded">Completed</span>
                                                     @else
-                                                        <span class="badge bg-blue-400 p-1 rounded">In progress</span>
+                                                        <span class="badge bg-green-400 p-1 rounded text-white">Completed</span>
+                                                   
                                                     @endif
                                                 </td>
                                                 <td class="text-center">
@@ -141,25 +139,26 @@
                                                 <td>
 
 
-                                                    <div class="editBtn bg-blue-400 mx-2 p-1  border rounded w-fit">
+                                                    <div class="editBtn bg-blue-400 mx-2 p-1  border rounded w-fit ">
 
                                                         <img src="{{ asset('img/action-icons/edit.png') }}"
-                                                            class="h-[1.5rem]" />
+                                                            class="h-[1.5rem] cursor-pointer" />
 
                                                         <div
-                                                            class="hidden fixed  left-0  top-0 rounded editForm w-[100%] h-[100%]">
+                                                            class="hidden fixed  left-0  top-0 rounded editForm w-[100%] h-[100%] bg-[#ffffffba]">
 
                                                             <form action="{{ 'edit/' . $data['taskID'] }}"
                                                                 method="post"
-                                                                class="flex flex-col justify-center bg-body-secondary border rounded  p-1  bg-white w-[30rem] eForm"
+                                                                class="flex flex-col justify-center bg-body-secondary border rounded  p-1  bg-white w-[30rem] shadow-md eForm"
                                                                 >
 
                                                                 @csrf
                                                                 <div class="closeBtn flex justify-end">
                                                                     <img src="{{ asset('img/action-icons/close.png') }}"
-                                                                        class="h-[1.5rem] " />
+                                                                        class="h-[1.5rem] cursor-pointer " />
                                                                 </div>
-                                                                <div class="formContainer" style="height: 15rem; width:25rem">
+                                                                <div class="flex justify-center">
+                                                                <div class="formContainer" style="height: 15rem; width:20rem">
                                                                     <div
                                                                         class="mb-3  flex justify-between  items-center">
                                                                         <label for="task"
@@ -188,6 +187,7 @@
                                                                             type="submit" value="Update Task">
                                                                     </div>
                                                                 </div>
+                                                            </div>
                                                             </form>
                                                         </div>
 

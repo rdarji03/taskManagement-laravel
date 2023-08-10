@@ -22,7 +22,7 @@
                 </div>
                 <div class="taskTable container flex flex-col items-center w-full  justify-center">
                     <h4  class="text-3xl underline ">Staff list</h4>
-                    <div class="dataTable border-solid border-2 border-indigo-600 rounded	 w-[75%]" style="height: 36rem;overflow: auto;">
+                    <div class="dataTable border-solid border-2 border-gray-950 rounded	 w-[75%]" style="max-height: 36rem;overflow: auto;">
                         <table id="myTable" class="display">
                             <thead>
                                 <tr>
@@ -48,7 +48,7 @@
                                         </td>
                                         <td class="text-center">
                                             <a href={{ 'user/delet/' . $data['id'] }}>
-                                                <button class=" bg-red-400 p-1 rounded">
+                                                <button class=" bg-red-400 p-1 rounded text-white">
                                                     Remove
                                                 </button>
                                             </a>

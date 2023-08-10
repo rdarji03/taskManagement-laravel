@@ -32,10 +32,10 @@
                         <h4 class="text-3xl underline ">Import Task</h4>
                     </div>
                     <div class="excelForm  border-2 h-[10rem] w-[80%] shadow-lg flex flex-col justify-center items-center">
-                        <form action="/importExcel" method="post" enctype="multipart/form-data" class="w-[90%] ">
+                        <form action="/importExcel" method="post"  enctype="multipart/form-data" class="w-[90%] ">
                             @csrf
                             <div class="py-3">
-                                <input type="file" name="taskdetail" id="" class=" border-2 w-full">
+                                <input type="file" name="taskdetail" id="" class=" border-2 w-full" required>
                             </div>
                             <div class="flex justify-between">
                                 <button type="submit"
