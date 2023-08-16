@@ -34,7 +34,7 @@ class taskController extends Controller
             ->update([
                 'taskStatus' => 1,
             ]);
-        return back();
+        return redirect()->back();
     }
     public function findTask(Request $req)
     {

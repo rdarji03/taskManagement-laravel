@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Maatwebsite\Excel\Facades\Excel;
 
-class downloadExcel extends Controller
+class manageExcel extends Controller
 {
     /**
      * @return \Illuminate\Support\Collection
@@ -43,16 +43,19 @@ class downloadExcel extends Controller
     }
     public function upload(Request $request)
     {
-
         try {
             $filepath = $request->file("taskdetail")->store("temp");
             // return $filepath;
             Excel::import(new TaskExcel, $filepath);
-            return redirect("");
+            return redirect()->route("admin.home");
 
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
 
+    }
+    public function downloadSample(){
+        $file_path = public_path('sampleFile/taskSample.xlsx');
+        return response()->download($file_path);
     }
 }

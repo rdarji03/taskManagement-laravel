@@ -92,6 +92,8 @@
                                         <th scope="col" class=" text-center" style="text-align: center">Task No</th>
                                         <th scope="col" class=" text-center" style="text-align: center">Assigned To
                                         </th>
+                                        <th scope="col" class="text-center" style="text-align: center">Email
+                                        </th>
                                         <th scope="col" class="text-center" style="text-align: center">Task
                                             Information
                                         </th>
@@ -108,11 +110,16 @@
                                         @foreach ($taskList as $data)
                                             <tr>
                                                 <th scope="row" class="text-center">{{ $data['taskID'] }}</th>
-                                                <th scope="row" class="text-center">
+                                                <td scope="row" class="text-center">
 
                                                     {{ $data['name'] }}
 
-                                                </th>
+                                                </td>
+                                                <td scope="row" class="text-center">
+
+                                                    {{ $data['email'] }}
+
+                                                </td>
                                                 <td class="text-center">{{ $data['taskInfo'] }}</td>
                                                 <td class="text-center">
                                                     {{ date('d-m-Y', strtotime($data['assignedDate'])) }}
@@ -124,8 +131,8 @@
                                                         <span class="badge bg-gray-400 p-1 rounded text-white">Not
                                                             Completed</span>
                                                     @else
-                                                        <span class="badge bg-green-400 p-1 rounded text-white">Completed</span>
-                                                   
+                                                        <span
+                                                            class="badge bg-green-400 p-1 rounded text-white">Completed</span>
                                                     @endif
                                                 </td>
                                                 <td class="text-center">
@@ -149,8 +156,7 @@
 
                                                             <form action="{{ 'edit/' . $data['taskID'] }}"
                                                                 method="post"
-                                                                class="flex flex-col justify-center bg-body-secondary border rounded  p-1  bg-white w-[30rem] shadow-md eForm"
-                                                                >
+                                                                class="flex flex-col justify-center bg-body-secondary border rounded  p-1  bg-white w-[30rem] shadow-md eForm">
 
                                                                 @csrf
                                                                 <div class="closeBtn flex justify-end">
@@ -158,36 +164,38 @@
                                                                         class="h-[1.5rem] cursor-pointer " />
                                                                 </div>
                                                                 <div class="flex justify-center">
-                                                                <div class="formContainer" style="height: 15rem; width:20rem">
-                                                                    <div
-                                                                        class="mb-3  flex justify-between  items-center">
-                                                                        <label for="task"
-                                                                            class="">Task:</label>
-                                                                        <input type="text"
-                                                                            class="form-control shadow-none w-50 p-2 border border-dark w-[15rem]"
-                                                                            id="task"
-                                                                            placeholder="write task here..."
-                                                                            name="taskDetail">
-                                                                    </div>
-                                                                    <div
-                                                                        class="mb-3 flex justify-between items-center">
-                                                                        <label for="assignedDate">Start Date:</label>
-                                                                        <input type="date" id="assignedDate"
-                                                                            class="w-[15rem]" name="assignedDate">
-                                                                    </div>
-                                                                    <div
-                                                                        class="mb-3 flex justify-between items-center">
-                                                                        <label for="endDate">End Date:</label>
-                                                                        <input type="date" id="endDate"
-                                                                            name="endDate" class="w-[15rem]">
-                                                                    </div>
-                                                                    <div class="flex justify-center">
-                                                                        <input
-                                                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                                                                            type="submit" value="Update Task">
+                                                                    <div class="formContainer"
+                                                                        style="height: 15rem; width:20rem">
+                                                                        <div
+                                                                            class="mb-3  flex justify-between  items-center">
+                                                                            <label for="task"
+                                                                                class="">Task:</label>
+                                                                            <input type="text"
+                                                                                class="form-control shadow-none w-50 p-2 border border-dark w-[15rem]"
+                                                                                id="task"
+                                                                                placeholder="write task here..."
+                                                                                name="taskDetail">
+                                                                        </div>
+                                                                        <div
+                                                                            class="mb-3 flex justify-between items-center">
+                                                                            <label for="assignedDate">Start
+                                                                                Date:</label>
+                                                                            <input type="date" id="assignedDate"
+                                                                                class="w-[15rem]" name="assignedDate">
+                                                                        </div>
+                                                                        <div
+                                                                            class="mb-3 flex justify-between items-center">
+                                                                            <label for="endDate">End Date:</label>
+                                                                            <input type="date" id="endDate"
+                                                                                name="endDate" class="w-[15rem]">
+                                                                        </div>
+                                                                        <div class="flex justify-center">
+                                                                            <input
+                                                                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                                                                type="submit" value="Update Task">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
                                                             </form>
                                                         </div>
 

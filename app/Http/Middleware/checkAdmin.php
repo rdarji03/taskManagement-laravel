@@ -15,11 +15,14 @@ class checkAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->u_type==1) {
-            return $next($request);
-        }
-        else{
-            return redirect()->route("staff.home")->with("error","only admin can access this page") ;
+        try {
+            if (auth()->user()->u_type == 1) {
+                return $next($request);
+            } else {
+                return redirect()->route("staff.home")->with("error", "only admin can access this page");
+            }
+        } catch (\Throwable $th) {
+            return redirect()->route("login");
         }
     }
 }

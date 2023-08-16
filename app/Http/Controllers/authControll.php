@@ -41,15 +41,19 @@ class authControll extends Controller
         ]);
         $credentials = $req->only("email", "password");
         if (Auth::attempt($credentials)) {
-            if (auth()->user()->u_type==1) {
-                return redirect()->route("admin.home");
+            try {
+                if (auth()->user()->u_type==1) {
+                    return redirect()->route("admin.home");
+                }
+                elseif (auth()->user()->u_type==0){
+                    return redirect()->route("staff.home",["id"=>auth()->user()->id]);
+                }
+               
+              
+            } catch (\Throwable $th) {
+                return "error";
             }
-            elseif (auth()->user()->u_type==0){
-                return redirect()->route("staff.home",["id"=>auth()->user()->id]);
-            }
-            else{
-                return "hello";
-            }
+            
         } else {
             return redirect()->route("login")->with("error","Please check Credentials");
         }

@@ -17,7 +17,7 @@ class TaskExcel implements ToCollection,WithHeadingRow
         // return dd($rows); 
         foreach ($rows as $row) {
             alocatedTask::insert([
-
+                'id'=>$row['id'],
                 'taskInfo' => $row['taskinfo'],
                 'taskStatus' => $row['taskstatus'],
                 'assignedDate' => $row['assigneddate'],
